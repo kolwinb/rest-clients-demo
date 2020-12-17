@@ -290,6 +290,10 @@ class private_api:
         query = "market={}&orderId={}".format(market, order_id)
         return self.request('DELETE', '/exchange/api/v2/order', query, None)
 
+    def view_mining_data(self, size, page, path, sort, system, status):
+        #sort : [ "NAME", "PROFITABILITY", "ACTIVE", "INACTIVE" ]
+        query = "size={}&page={}&path={}&sort={}&system={}&status={}".format(size, page, path, sort, system, status)
+        return self.request('GET','/main/api/v2/mining/rigs2', query, None)    
 
 if __name__ == "__main__":
     parser = optparse.OptionParser()
